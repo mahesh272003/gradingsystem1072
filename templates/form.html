@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Course Selection</title>
+</head>
+<body>
+<form method="post" id="student-course-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Submit</button>
+</form>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // When the course select field changes
+    $('#id_course').on('change', function() {
+        var courseCode = $(this).val();
+        if (courseCode) {
+            // Send an AJAX request to get the faculty names for the selected course
+            $.ajax({
+                url: '/get_faculty_names/',
+                data: {
+                    course_code:
+                },
+                dataType: 'json',
+                success: function(data) {
+                    // Update the faculty select field with the fetched faculty names
+                    var facultySelect = $('#id_faculty');
+                    facultySelect.empty();
+                    for (var i = 0; i < data.length; i++) {
+                        facultySelect.append($('<option>', {
+                            value: data[i].id,
+                            text: data[i].fullname
+                        }));
+                    }
+                }
+            });
+        }
+    });
+});
+</script>
+</body>
+</html>

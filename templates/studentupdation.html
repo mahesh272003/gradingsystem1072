@@ -1,0 +1,112 @@
+{% extends 'adminhome.html' %}
+
+{% block 'body' %}
+<style>
+    /* Style the form */
+    form {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* Style the table */
+    table {
+        width: 60%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table, th, td {
+
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* Style the table headers */
+    th {
+        background-color: #009879;
+        color: white;
+    }
+
+    /* Style the select elements */
+    select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Style the input elements */
+    input[type="text"],
+    input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Style the submit and reset buttons */
+    .button {
+        background-color: #009879;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+    }
+
+    /* Add hover effect to buttons */
+    .button:hover {
+        background-color: #007867; /* Change to your desired hover color */
+    }
+</style>
+<h2 align="center" style="color: green">{{ msg }}</h2>
+<h3 align="center"><u>Update Student</u></h3><br>
+<form method="post" action="{% url 'studentupdated' %}">
+    {% csrf_token %}
+
+    <table align="center">
+        <tr align="center" bgcolor="gray">
+     <td><label>Student ID</label></td>
+    <td> <input type="number" name="sid" value="{{sid}}" readonly> </td>
+    </tr>
+        <tr>
+             <td><label>Enter Name</label></td>
+            <td>
+                 <input type="text" name="name" required>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Enter Year</label></td>
+            <td>
+                <input type="number" name="year" min="1" max="4">
+
+            </td>
+        </tr>
+
+         <tr>
+            <td><label>Select semester</label></td>
+            <td>
+                <select name="sem" required>
+                     <option>--Select---</option>
+                    <option value="ODD">ODD SEM</option>
+                    <option value="EVEN">EVEN SEM</option>
+                </select>
+            </td>
+        </tr>
+        <tr align="center">
+            <td><input type="submit" value="update" class="button"></td>
+             <td><input type="reset" value="Clear" class="button"></td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

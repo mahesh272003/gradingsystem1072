@@ -1,0 +1,106 @@
+ /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Apply styling to the body */
+        body {
+
+            font-family: 'Poppins', sans-serif;
+            background: #c1f7f5;
+        }
+
+        /* Style the header with the navigation bar */
+        header {
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 20px 15px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            height: 80px; /* Adjust the height as needed */
+        }
+
+        /* Style the logo */
+        .logo {
+            margin-right: 20px; /* Add space on the right for the logo */
+        }
+
+        /* Style the navigation links */
+        .nav-links {
+
+            display: flex;
+            list-style: none;
+            margin-left: auto; /* Move the navigation links to the right */
+        }
+
+        .nav-links li {
+            margin: 0 12px;
+        }
+
+        .nav-links li a {
+            position: relative;
+            color: #333;
+            font-size: 20px;
+            font-weight: 500;
+            padding: 6px 0;
+            text-decoration: none;
+        }
+
+        .nav-links li a:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: #34efdf;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+        }
+
+        .nav-links li a:hover:before {
+            width: 100%;
+
+        }
+        /* Add any other styles as needed for different navigation effects */
+
+
+/* style.css */
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    width: 100%;
+    background: url('../static/images/sgmschng.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.button {
+    background-color: #009879;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button a {
+    color: white;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #007867; /* Change to your desired hover color */
+}

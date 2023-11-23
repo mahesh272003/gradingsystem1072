@@ -1,0 +1,72 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Admin Home</title>
+    <style>
+             /* Add these styles to your existing CSS code */
+
+        /* Add these styles to your existing CSS code */
+        body {
+            background-image: url("{% static '/images/sgms1.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        /* ... your existing styles ... */
+
+.button {
+    background-color: #009879;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button a {
+    color: white;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #007867; /* Change to your desired hover color */
+}
+
+    </style>
+</head>
+<body>
+    <br><h1 align="center">Welcome Student <h1 align="right" ><i>{{sid}}</i> </h1></h1>
+    <br>
+    <header>
+        <nav>
+            <div class="logo">
+            <img src="{% static '/images/sglogo.jpg' %}" alt="Project Logo" width="60" height="60" align="left">
+            </div>
+
+            <ul class="nav-links">
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <li><a href="{% url 'studenthome' %}">Home</a></li>
+                        <li><a href="{% url 'studentcourses' %}">View courses</a></li>
+                        <li><a href="{% url 'student_grade_mapping_list' %}">View Marks</a></li>
+                        <li><a href="{% url 'studentchangepwd' %}">Change Password</a></li>
+                        <li><a href="{% url 'student-login' %}">Logout</a></li>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <br><br>
+{% block 'body' %}
+<h1></h1>
+<h1 align="center"> This is Student Home Page </h1>
+{% endblock  %}
+</body>
+</html>

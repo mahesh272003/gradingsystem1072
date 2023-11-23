@@ -1,0 +1,106 @@
+{% extends 'adminhome.html' %}
+{% block 'body' %}
+<head>
+   <head>
+    <style>
+        .full-width {
+    width: 100%;
+    box-sizing: border-box; /* Optional: Include padding and border in the total width */
+}
+/* Add these styles to your existing CSS code */
+
+.form-control {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    border-color: #009879;
+    outline: none;
+}
+    .styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+    .styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+    .styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+    .styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+    .styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+    .styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+</style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+</head>
+<h3 align="center"><u>View All Faculty</u> </h3><br>
+<h4>
+Total Faculty = {{count}}
+</h4>
+<input class="form-control full-width" id="myInput" type="text" placeholder="Faculty Details..">
+<table class="styled-table">
+    <thead>
+    <tr bgcolor="lightblue" align="center">
+        <td>ID</td>
+        <td>Name</td>
+        <td>Gender</td>
+        <td>Department</td>
+        <td>Qualification</td>
+        <td>Designation</td>
+        <td>Semester</td>
+        <td>Year</td>
+        <td>Email</td>
+        <td>Contact</td>
+    </tr>
+    </thead>
+    <tbody id="myTable">
+    {% for faculty in facultydata  %}
+    <tr class="active-row">
+        <td>{{faculty.facultyid}}</td>
+        <td>{{faculty.fullname}}</td>
+        <td>{{faculty.gender}}</td>
+        <td>{{faculty.department}}</td>
+        <td>{{faculty.qualification}}</td>
+        <td>{{faculty.designation}}</td>
+        <td>{{faculty.semester}}</td>
+        <td>{{faculty.year}}</td>
+        <td>{{faculty.email}}</td>
+        <td>{{faculty.contact}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock  %}

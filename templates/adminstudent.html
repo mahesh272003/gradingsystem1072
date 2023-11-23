@@ -1,0 +1,49 @@
+{% extends 'adminhome.html' %}
+{% block 'body' %}
+<head>
+   <style>
+       .button {
+    background-color: #009879;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button a {
+    color: white;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #007867; /* Change to your desired hover color */
+}
+
+   </style>
+</head>
+<h1></h1>
+<center>
+    <button class="button">
+        <a href="{% url 'addstudent' %}">Add Student</a>
+    </button>
+
+    <button class="button">
+        <a href="{% url 'viewstudents'%}">View All Student</a>
+    </button>
+
+    <button class="button">
+         <a href="{% url 'updatestudent'%}">Update Student</a>
+    </button>
+
+    <button class="button">
+          <a href="{% url 'deletestudent'%}">Delete Student</a>
+    </button>
+</center>
+{% endblock  %}

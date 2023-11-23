@@ -1,0 +1,89 @@
+{% extends 'adminhome.html' %}
+{% load static %}
+{% block 'body' %}
+<style>
+    /* Style the form */
+    form {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* Style the table */
+    table {
+        width: 60%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table, th, td {
+
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* Style the table headers */
+    th {
+        background-color: #009879;
+        color: white;
+    }
+
+    /* Style the select elements */
+    select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Style the input elements */
+    input[type="text"],
+    input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Style the submit and reset buttons */
+    .button {
+        background-color: #009879;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+    }
+
+    /* Add hover effect to buttons */
+    .button:hover {
+        background-color: #007867; /* Change to your desired hover color */
+    }
+</style>
+<h1></h1>
+<h2 align="center" style="color: green">{{ msg }}</h2>
+
+<h3 align="center"><u>Add Student</u></h3><br>
+<form method="post">
+    {% csrf_token %}
+    <table align="center">
+        <tr>
+        {{ form }}
+        </tr>
+        <tr>
+
+        </tr>
+    </table><br>
+    <input type="submit" value="Add" class="button">
+    <input type="submit" value="Clear" class="button">
+</form>
+{% endblock %}

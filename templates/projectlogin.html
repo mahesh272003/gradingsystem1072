@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Sign Up</title>
+    <style>* {
+    padding: 0px;
+    margin: 0px;
+}
+header {
+    background-color: #89216b;
+    color: #F7FFF7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
+}
+h1 {
+    letter-spacing: 0.5vw;
+    font-family: 'system-ui';
+    text-transform: uppercase;
+    text-align: center;
+}
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    width: 100%;
+    background: url(static/images/sgmschng.jpg) no-repeat center center ;
+    background-size: cover;
+    position: relative;
+}
+.form_class {
+
+    width: 300px;
+    padding: 40px;
+    border-radius: 8px;
+    background-color: lightgrey;
+    font-family: 'system-ui';
+    box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
+}
+.form_div {
+    text-transform: uppercase;
+}
+.form_div > label {
+    letter-spacing: 3px;
+    font-size: 1rem;
+}
+.info_div {
+    text-align: center;
+    margin-top: 20px;
+}
+.info_div {
+    letter-spacing: 1px;
+}
+.field_class {
+    width: 100%;
+    border-radius: 6px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px 0px;
+    text-indent: 6px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: 'system-ui';
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+button {
+ width: 300px;
+ padding: 15px 25px;
+ border: unset;
+ border-radius: 15px;
+ color: #212121;
+ z-index: 1;
+ background: #e8e8e8;
+ position: relative;
+ font-weight: 1000;
+ font-size: 17px;
+ -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition: all 250ms;
+ overflow: hidden;
+}
+
+button::before {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 0;
+ border-radius: 15px;
+ background-color: #212121;
+ z-index: -1;
+ -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition: all 250ms
+}
+
+button:hover {
+ color: #e8e8e8;
+}
+
+button:hover::before {
+ width: 100%;
+}
+/* Add this to your existing CSS or create a separate CSS file */
+footer {
+    position: fixed; /* Keep the footer fixed at the bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 13vh;
+    background-color: white;
+    color: #555555;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.about-sgms {
+    font-family: 'system-ui';
+    letter-spacing: 1px;
+    max-width: 50%; /* Adjust the width as needed */
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+}
+
+.social-icons a {
+    margin-right: 10px; /* Adjust the spacing between icons */
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Add additional styling for the social media icons and their hover effects as needed */
+
+
+</style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+    <style>
+#section1 {
+  height: 600px;
+}
+
+#section2 {
+  height: 600px;
+}
+</style>
+</head>
+<body>
+    <header>
+        <h1>Student Grading System</h1>
+    </header>
+
+    <main>
+        <form id="login_form" class="form_class" action="login/login-access.php" method="post">
+            <div class="form_div">
+                <label>Select your Role</label>
+                <br><br>
+                <button type="button" onclick="window.location.href = '{% url 'adminlogin' %}';" class="btn btn-primary">Admin</button><br><br>
+                <button type="button" onclick="window.location.href = '{% url 'faculty-login' %}';" class="btn btn-primary">Faculty</button><br><br>
+                <button type="button" onclick="window.location.href = '{% url 'student-login' %}';" class="btn btn-primary">Student</button><br><br>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="about-sgms">
+                <p>About Us</p>
+                <p>Student Grading Management System is a software tool that simplifies and automates the process of recording, tracking, and evaluating student performance in educational institutions. </p>           </div>
+            <div class="social-icons">
+                <p>Contact Us</p>&nbsp;
+                <a href="https://www.instagram.com/your_instagram_url" target="_blank"><img src="static/images/insta1.png" alt="Instagram" style="width: 24px; height: 24px;"></a>
+                <a href="https://www.linkedin.com/your_linkedin_url" target="_blank"><img src="static/images/li2.png" alt="LinkedIn" style="width: 24px; height: 24px;"></a>
+            </div>
+        </div>
+        </footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+        /* Add these styles to your existing CSS code */
+        body {
+            background-image: url("{% static '/images/sgms1.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        /* ... your existing styles ... */
+    </style>
+</head>
+<body>
+    <br><h1 align="center">Welcome Admin <h1 align="right" ><i>{{adminuname}}</i> </h1></h1>
+    <br>
+    <header>
+<nav>
+            <div class="logo">
+            <img src="{% static '/images/sglogo.jpg' %}" alt="Project Logo" width="60" height="60" align="left">
+            </div>
+
+            <ul class="nav-links">
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <li><a href="{% url 'adminhome' %}">Home</a></li>
+                        <li><a href="{% url 'adminstudents' %}">Student</a></li>
+                        <li><a href="{% url 'adminfaculty' %}">Faculty</a></li>
+                        <li><a href="{% url 'admincourses' %}">Courses</a></li>
+                        <li><a href="{% url 'facultycoursemapping' %}">Faculty Course Mapping</a></li>
+                        <li><a href="{% url 'studentcoursemapping' %}">Student Course Mapping</a></li>
+                        <li><a href="{% url 'adminchangepwd' %}">Change Password</a></li>
+                        <li><a href="{% url 'admin-logout' %}">Logout</a></li>
+
+                </li>
+            </ul>
+        </nav>    </header>
+    <br><br>
+    {% block 'body' %}
+    <h1></h1>
+    <h1 align="center">This is Admin Home Page</h1>
+    {% endblock  %}
+</body>
+</html>
